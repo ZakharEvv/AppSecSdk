@@ -1,6 +1,7 @@
 package com.zszuev.secapp
 
 import android.app.Application
+import android.util.Log
 import com.zszuev.appsecsdk.SecuritySdk
 import com.zszuev.appsecsdk.ThreatAlertManager
 

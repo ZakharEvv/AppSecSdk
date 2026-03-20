@@ -1,8 +1,10 @@
 package com.zszuev.appsecsdk
 
 import android.app.Application
-import com.zszuev.appsecsdk.pincode.PinCodeActivity
+import com.zszuev.appsecsdk.emulator.EmulatorDetector
+import com.zszuev.appsecsdk.inactivity.InactivityTracker
 import com.zszuev.appsecsdk.pincode.PinCodeManager
+import com.zszuev.appsecsdk.root.RootDetector
 
 object SecuritySdk {
 
@@ -14,6 +16,7 @@ object SecuritySdk {
         this.application = application
         this.config = SdkConfig.Builder().apply(block).build()
         AppSecLauncher.startMonitoring(application)
+        InactivityTracker.startMonitoring(application)
     }
 
     fun getConfig(): SdkConfig = config
@@ -21,17 +24,22 @@ object SecuritySdk {
     fun checkDevice(): SecurityCheckResult {
         requireInit()
         return SecurityCheckResult(
-            isRooted = if (config.rootDetectionEnabled) com.zszuev.appsecsdk.root.RootDetector.isRooted() else false,
-            isEmulator = if (config.emulatorDetectionEnabled) com.zszuev.appsecsdk.emulator.EmulatorDetector.isEmulator() else false,
+            isRooted = if (config.rootDetectionEnabled) RootDetector.isRooted() else false,
+            isEmulator = if (config.emulatorDetectionEnabled) EmulatorDetector.isEmulator() else false,
         )
     }
 
-    fun showPinCode(onSuccess: () -> Unit) {
+    /**
+        Сброс таймера неактивности пользователя
+     **/
+    fun resetInactivityTimer() {
         requireInit()
-        PinCodeManager.onPinSuccess = onSuccess
-        PinCodeActivity.start(application)
+        InactivityTracker.resetTimer()
     }
 
+    /**
+        Коллбек успешного ввода пин-кода
+     **/
     fun onPinSuccess(callback: () -> Unit) {
         PinCodeManager.onPinSuccess = callback
     }
