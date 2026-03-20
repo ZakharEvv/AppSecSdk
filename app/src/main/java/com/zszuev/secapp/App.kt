@@ -15,8 +15,11 @@ class App : Application() {
             inactivityTimeoutSeconds = 60
         }
         ThreatAlertManager.setCallbacks(
-            onRootConfirmed = { /* например: exitProcess(0) */ },
-            onEmulatorConfirmed = { /* например: exitProcess(0) */ },
+            onRootConfirmed = {  },
+            onEmulatorConfirmed = {  },
         )
+        SecuritySdk.onPinSuccess {
+            // пользователь успешно вошёл
+        }
     }
 }

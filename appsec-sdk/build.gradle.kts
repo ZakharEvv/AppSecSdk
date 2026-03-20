@@ -50,4 +50,5 @@ dependencies {
     implementation(libs.androidx.biometric)
     debugImplementation(libs.androidx.ui.tooling)
     implementation(libs.material)
+    implementation(libs.androidx.activity.compose)
 }
