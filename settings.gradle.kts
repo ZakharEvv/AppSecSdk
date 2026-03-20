@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "AppSecSdkDemo"
 include(":app")
- 
+include(":appsec-sdk")
