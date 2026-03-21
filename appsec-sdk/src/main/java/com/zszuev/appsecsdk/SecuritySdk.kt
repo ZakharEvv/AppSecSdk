@@ -5,6 +5,7 @@ import com.zszuev.appsecsdk.emulator.EmulatorDetector
 import com.zszuev.appsecsdk.inactivity.InactivityTracker
 import com.zszuev.appsecsdk.pincode.PinCodeManager
 import com.zszuev.appsecsdk.root.RootDetector
+import com.zszuev.appsecsdk.screenshot.ScreenshotProtector
 
 object SecuritySdk {
 
@@ -17,6 +18,7 @@ object SecuritySdk {
         this.config = SdkConfig.Builder().apply(block).build()
         AppSecLauncher.startMonitoring(application)
         InactivityTracker.startMonitoring(application)
+        ScreenshotProtector.startMonitoring(application)
     }
 
     fun getConfig(): SdkConfig = config
