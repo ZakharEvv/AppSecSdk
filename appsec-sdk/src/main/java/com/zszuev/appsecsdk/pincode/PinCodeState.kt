@@ -11,4 +11,6 @@ internal data class PinCodeState(
     val lockoutSecondsLeft: Int = 0,
     val threatAlertConfig: ThreatAlertConfig? = null,
     val isThreatRoot: Boolean = false,
+    val showBiometricOffer: Boolean = false,
+    val showBiometricPrompt: Boolean = false,
 )

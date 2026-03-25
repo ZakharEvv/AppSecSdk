@@ -1,9 +1,11 @@
 package com.zszuev.appsecsdk
 
+import com.zszuev.appsecsdk.biometric.BiometricConfig
 import com.zszuev.appsecsdk.pincode.PinCodeConfig
 
 data class SdkConfig(
     val pinCodeConfig: PinCodeConfig = PinCodeConfig(),
+    val biometricConfig: BiometricConfig = BiometricConfig(),
     val screenshotProtectionEnabled: Boolean = true,
     val clipboardProtectionEnabled: Boolean = true,
     val rootDetectionEnabled: Boolean = true,
@@ -22,6 +24,7 @@ data class SdkConfig(
 ) {
     class Builder {
         var pinCodeConfig: PinCodeConfig = PinCodeConfig()
+        var biometricConfig: BiometricConfig = BiometricConfig()
         var screenshotProtectionEnabled: Boolean = true
         var clipboardProtectionEnabled: Boolean = true
         var rootDetectionEnabled: Boolean = true
@@ -40,6 +43,7 @@ data class SdkConfig(
 
         fun build() = SdkConfig(
             pinCodeConfig = pinCodeConfig,
+            biometricConfig = biometricConfig,
             screenshotProtectionEnabled = screenshotProtectionEnabled,
             clipboardProtectionEnabled = clipboardProtectionEnabled,
             rootDetectionEnabled = rootDetectionEnabled,

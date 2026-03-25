@@ -10,14 +10,19 @@ import androidx.activity.viewModels
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.lifecycleScope
 import com.zszuev.appsecsdk.SecuritySdk
 import com.zszuev.appsecsdk.ThreatAlertManager
 import com.zszuev.appsecsdk.ThreatAlertConfig
+import com.zszuev.appsecsdk.biometric.BiometricManager
 import com.zszuev.appsecsdk.emulator.EmulatorDetector
+import com.zszuev.appsecsdk.pincode.ui.BiometricOfferDialog
 import com.zszuev.appsecsdk.pincode.ui.PinCodeScreen
 import com.zszuev.appsecsdk.root.RootDetector
+import kotlinx.coroutines.launch
 
-class PinCodeActivity : ComponentActivity() {
+class PinCodeActivity : FragmentActivity() {
 
     companion object {
         fun start(context: Context) {
@@ -42,6 +47,7 @@ class PinCodeActivity : ComponentActivity() {
 
         setContent {
             val state by viewModel.state.collectAsState()
+
             MaterialTheme {
                 PinCodeScreen(
                     mode = state.mode,
@@ -59,12 +65,39 @@ class PinCodeActivity : ComponentActivity() {
                         )
                     },
                 )
+
+                if (state.showBiometricOffer) {
+                    BiometricOfferDialog(
+                        config = SecuritySdk.getConfig().biometricConfig,
+                        onConfirm = { viewModel.onBiometricOfferConfirm(this) },
+                        onDismiss = { viewModel.onBiometricOfferDismiss() },
+                    )
+                }
+            }
+        }
+
+        observeBiometricPrompt()
+    }
+
+    private fun observeBiometricPrompt() {
+        lifecycleScope.launch {
+            viewModel.state.collect { state ->
+                if (state.showBiometricPrompt) {
+                    val config = SecuritySdk.getConfig().biometricConfig
+                    BiometricManager.authenticate(
+                        activity = this@PinCodeActivity,
+                        title = config.title,
+                        subtitle = config.subtitle,
+                        negativeButtonText = config.negativeButtonText,
+                        onSuccess = { viewModel.onBiometricSuccess() },
+                        onError = { viewModel.onBiometricFallback() },
+                        onFallback = { viewModel.onBiometricFallback() },
+                    )
+                }
             }
         }
     }
 
     @Deprecated("Deprecated in Java")
-    override fun onBackPressed() {
-        // блокируем кнопку назад
-    }
+    override fun onBackPressed() {}
 }

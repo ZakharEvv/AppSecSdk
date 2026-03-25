@@ -6,6 +6,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
 import com.zszuev.appsecsdk.SecuritySdk
 import com.zszuev.appsecsdk.ThreatAlertManager
+import com.zszuev.appsecsdk.biometric.BiometricConfig
 import com.zszuev.appsecsdk.pincode.DotStyle
 import com.zszuev.appsecsdk.pincode.KeyShape
 import com.zszuev.appsecsdk.pincode.PinCodeConfig
@@ -28,6 +29,7 @@ class App : Application() {
                 titleFontSize = 20.sp,
                 logoResId = R.drawable.ic_launcher_foreground
             )
+            biometricConfig = BiometricConfig()
         }
         ThreatAlertManager.setCallbacks(
             onRootConfirmed = {  },
