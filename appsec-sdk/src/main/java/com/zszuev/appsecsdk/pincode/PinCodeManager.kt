@@ -3,6 +3,7 @@ package com.zszuev.appsecsdk.pincode
 import android.content.Context
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
+import com.zszuev.appsecsdk.pincode.models.PinCheckResult
 
 internal object PinCodeManager {
 

@@ -1,7 +1,7 @@
 package com.zszuev.appsecsdk
 
 import com.zszuev.appsecsdk.biometric.BiometricConfig
-import com.zszuev.appsecsdk.pincode.PinCodeConfig
+import com.zszuev.appsecsdk.pincode.models.PinCodeConfig
 
 data class SdkConfig(
     val pinCodeConfig: PinCodeConfig = PinCodeConfig(),

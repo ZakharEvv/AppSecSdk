@@ -1,4 +1,4 @@
-package com.zszuev.appsecsdk.pincode
+package com.zszuev.appsecsdk.pincode.models
 
 import com.zszuev.appsecsdk.ThreatAlertConfig
 

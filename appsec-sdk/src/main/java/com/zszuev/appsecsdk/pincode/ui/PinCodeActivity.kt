@@ -1,10 +1,8 @@
-package com.zszuev.appsecsdk.pincode
+package com.zszuev.appsecsdk.pincode.ui
 
-import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.material3.MaterialTheme
@@ -14,12 +12,9 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
 import com.zszuev.appsecsdk.SecuritySdk
 import com.zszuev.appsecsdk.ThreatAlertManager
-import com.zszuev.appsecsdk.ThreatAlertConfig
 import com.zszuev.appsecsdk.biometric.BiometricManager
-import com.zszuev.appsecsdk.emulator.EmulatorDetector
-import com.zszuev.appsecsdk.pincode.ui.BiometricOfferDialog
-import com.zszuev.appsecsdk.pincode.ui.PinCodeScreen
-import com.zszuev.appsecsdk.root.RootDetector
+import com.zszuev.appsecsdk.pincode.PinCodeManager
+import com.zszuev.appsecsdk.pincode.PinCodeViewModel
 import kotlinx.coroutines.launch
 
 class PinCodeActivity : FragmentActivity() {

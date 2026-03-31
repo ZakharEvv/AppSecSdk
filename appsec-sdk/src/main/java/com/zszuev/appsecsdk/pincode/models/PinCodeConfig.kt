@@ -1,7 +1,6 @@
-package com.zszuev.appsecsdk.pincode
+package com.zszuev.appsecsdk.pincode.models
 
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit

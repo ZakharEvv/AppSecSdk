@@ -1,4 +1,4 @@
-package com.zszuev.appsecsdk.pincode
+package com.zszuev.appsecsdk.pincode.models
 
 sealed class PinCheckResult {
     object Success : PinCheckResult()

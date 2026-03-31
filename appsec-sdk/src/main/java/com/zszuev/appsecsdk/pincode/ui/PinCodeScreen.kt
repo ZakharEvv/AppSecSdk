@@ -39,10 +39,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zszuev.appsecsdk.ThreatAlertConfig
-import com.zszuev.appsecsdk.pincode.DotStyle
-import com.zszuev.appsecsdk.pincode.KeyShape
-import com.zszuev.appsecsdk.pincode.PinCodeConfig
-import com.zszuev.appsecsdk.pincode.PinCodeMode
+import com.zszuev.appsecsdk.pincode.models.DotStyle
+import com.zszuev.appsecsdk.pincode.models.KeyShape
+import com.zszuev.appsecsdk.pincode.models.PinCodeConfig
+import com.zszuev.appsecsdk.pincode.models.PinCodeMode
 import kotlinx.coroutines.delay
 
 @Composable

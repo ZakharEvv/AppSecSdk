@@ -3,7 +3,7 @@ package com.zszuev.appsecsdk
 import android.app.Activity
 import android.app.Application
 import android.os.Bundle
-import com.zszuev.appsecsdk.pincode.PinCodeActivity
+import com.zszuev.appsecsdk.pincode.ui.PinCodeActivity
 import com.zszuev.appsecsdk.pincode.PinCodeManager
 
 internal object AppSecLauncher {

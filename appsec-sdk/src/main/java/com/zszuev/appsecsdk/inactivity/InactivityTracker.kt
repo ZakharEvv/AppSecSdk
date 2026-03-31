@@ -8,7 +8,7 @@ import android.view.MotionEvent
 import android.view.Window
 import com.zszuev.appsecsdk.SecuritySdk
 import com.zszuev.appsecsdk.ThreatAlertManager
-import com.zszuev.appsecsdk.pincode.PinCodeActivity
+import com.zszuev.appsecsdk.pincode.ui.PinCodeActivity
 import com.zszuev.appsecsdk.pincode.PinCodeManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

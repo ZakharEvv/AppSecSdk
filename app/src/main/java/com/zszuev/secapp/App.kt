@@ -1,15 +1,14 @@
 package com.zszuev.secapp
 
 import android.app.Application
-import android.util.Log
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
 import com.zszuev.appsecsdk.SecuritySdk
 import com.zszuev.appsecsdk.ThreatAlertManager
 import com.zszuev.appsecsdk.biometric.BiometricConfig
-import com.zszuev.appsecsdk.pincode.DotStyle
-import com.zszuev.appsecsdk.pincode.KeyShape
-import com.zszuev.appsecsdk.pincode.PinCodeConfig
+import com.zszuev.appsecsdk.pincode.models.DotStyle
+import com.zszuev.appsecsdk.pincode.models.KeyShape
+import com.zszuev.appsecsdk.pincode.models.PinCodeConfig
 
 class App : Application() {
     override fun onCreate() {
